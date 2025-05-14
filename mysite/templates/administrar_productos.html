@@ -1,0 +1,60 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+<!------------------------  Main inicio -------------------------->
+
+<div class="container-fluid">
+    <div class="row mt-4 justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center mb-4">
+            <div class="card text-center" style="width: 20rem;">
+                <img src="/static/img/item-2-calzado.png" class="card-img-top img-fluid mx-auto d-block" alt="Calzado" style="height: 10rem;width: 10rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Calzado</h5>
+                    <p class="card-text">Se administra Todo Sobre el Calzado</p>
+                    <a href="{{url_for('formularioC')}}" class="btn btn-primary">AÑADIR</a>
+                    <a href="{{url_for('listaC')}}" class="btn btn-primary">EDITAR</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center mb-4">
+            <div class="card text-center" style="width: 20rem;">
+                <img src="/static/img/portada-hombre-2.jpg" class="card-img-top mx-auto d-block" alt="..." style="height: 10rem;width: 10rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Ropa Hombres</h5>
+                    <p class="card-text">Se administra Todo Sobre Ropa Hombres</p>
+                    <a href="{{url_for('formularioH')}}" class="btn btn-primary">AÑADIR</a>
+                    <a href="{{url_for('listaH')}}" class="btn btn-primary">EDITAR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4 justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center mb-4">
+            <div class="card text-center" style="width: 20rem;">
+                <img src="/static/img/sueter_dama.jpg" class="card-img-top mx-auto d-block" alt="..." style="height: 10rem;width: 10rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Ropa Mujeres</h5>
+                    <p class="card-text">Se administra Todo Sobre Ropa Mujeres</p>
+                    <a href="{{url_for('formularioM')}}" class="btn btn-primary">AÑADIR</a>
+                    <a href="{{url_for('listaM')}}" class="btn btn-primary">EDITAR</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center mb-4">
+            <div class="card text-center" style="width: 20rem;">
+                <img src="/static/img/item-8-niños.jpg" class="card-img-top mx-auto d-block" alt="..." style="height: 10rem;width: 10rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Ropa Niños</h5>
+                    <p class="card-text">Se administra Todo Sobre Ropa Niños</p>
+                    <a href="{{url_for('formularioN')}}" class="btn btn-primary">AÑADIR</a>
+                    <a href="{{url_for('listaN')}}" class="btn btn-primary">EDITAR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------------  Main fin -------------------------->
+
+{% endblock %}

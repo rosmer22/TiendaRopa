@@ -1,0 +1,70 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+<section>
+    <div id="contenedor-contenido-registro">
+        <div id="contenedor-titulo-subtitulo-registro">
+            <h3 id="titulo-no-estas-registrado">¿No estás registrado?</h3>
+
+        </div>
+        <p id="subtitulo">Regístrate y disfruta de una experiencia de compra mas rápida.</p>
+        <div id="contenedor-fila-2">
+            <div id="contenedor-beneficios">
+                <img id="img-registro" src="/static/img/inicioSesio.jpg" class="img-fluid" alt="...">
+                <h3 id="tilu.h3" style="text-align: center; margin-top: 20px; font-weight: bold;">Beneficios de
+                    tener
+                    una cuenta</h3>
+                <div id="contenedor-beneficios-estrellas">
+                    <div class="contenedor-icono-estrella-beneficio">
+                        <img class="icon-star" src="/static/img/icon-estre.png" alt="">
+                        <p class="titulo-beneficio">Tener acceso exclusivo</p>
+                    </div>
+                    <div class="contenedor-icono-estrella-beneficio">
+                        <img class="icon-star" src="/static/img/icon-estre.png" alt="">
+                        <p class="titulo-beneficio">Comprar en un click</p>
+                    </div>
+                    <div class="contenedor-icono-estrella-beneficio">
+                        <img class="icon-star" src="/static/img/icon-estre.png" alt="">
+                        <p class="titulo-beneficio">Envíos Ultrarrápidos.</p>
+                    </div>
+                    <div class="contenedor-icono-estrella-beneficio">
+                        <img class="icon-star" src="/static/img/icon-estre.png" alt="">
+                        <p class="titulo-beneficio">Acceso a Eventos Privados de Moda.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="contenedor-formulario-registro">
+                <h4 id="titulo-complete-formulario">Complete el siguiente formulario</h4>
+                <form action="{{url_for('proceso_signup')}}" method="post">
+                    <div class="cont-lbl-input">
+                        <label for="nombre"><b>Nombres:</b></label>
+                        <input class="form-control me-5" type="text" id="nombres" name="nombre" required><br><br>
+                    </div>
+                    <div class="cont-lbl-input">
+                        <label for="nombre"><b>Apellidos:</b></label>
+                        <input class="form-control me-5" type="text" id="apellidos" name="apellido" required><br><br>
+                    </div>
+                    <div class="cont-lbl-input">
+                        <label for="email"><b>E-mail:</b></label>
+                        <input class="form-control me-5" type="email" id="email" name="email"><br><br>
+                    </div>
+                    <div class="cont-lbl-input">
+                        <label for="password"><b>Contraseña:</b></label>
+                        <input class="form-control me-5" type="password" id="contraseña" name="password"
+                            required><br><br>
+                    </div>
+                    <div id="contenedor-check" class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label id="lbl-he-leido" class="form-check-label" for="exampleCheck1">He leído y acepto los
+                            términos y condiciciones</label>
+                    </div>
+                     <button id="btn-registrarme-registro" type="submit" class="btn btn-primary">Registrarme</button>
+                </form>
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

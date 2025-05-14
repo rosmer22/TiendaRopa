@@ -1,0 +1,83 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+
+<div class="container-libro-reclamaciones">
+  <h2 id="titulo-libro">Libro de Reclamaciones</h2>
+  <p id="parrafo-libro">De acuerdo con lo establecido en el Código de Protección y Defensa del Consumidor Tienda Point
+    Roo cuenta con un
+    libro de reclamaciones a su disposición. Al ingresar sus datos en el libro de reclamaciones usted estará aceptando
+    el tratamiento de sus datos personales para la solución del reclamo.</p>
+
+  <form id="formulario-libro-reclamaciones" action="#" method="post">
+    <section class="fecha-reclamo">
+      <label for="fecha"><b>Fecha del Reclamo:</b></label>
+      <input style="margin-bottom: 30px;" class="inp-libro-recl" type="date" id="fecha" name="fecha" required>
+    </section>
+
+    <section class="informacion-personal">
+      <h4 id="subtitulo-libro"><u>Información de la persona que presenta el reclamo:</u></h4>
+      <label for="tipo-documento">Tipo de Documento:</label>
+      <select id="tipo-documento" name="tipo-documento" required>
+        <option value="dni">DNI</option>
+        <option value="ce">Carné de Extranjería</option>
+        <!-- Otros tipos de documento aquí -->
+      </select>
+
+      <label for="numero-documento">Número de Documento:</label>
+      <input class="inp-libro-recl" type="number" id="numero-documento" name="numero-documento" required>
+
+      <label for="nombres">Nombres:</label>
+      <input class="inp-libro-recl" type="text" id="nombres" name="nombres" required>
+
+      <label for="apellidos">Apellidos:</label>
+      <input class="inp-libro-recl" type="text" id="apellidos" name="apellidos" required>
+
+      <label for="correo">Correo Electrónico:</label>
+      <input class="inp-libro-recl" type="email" id="correo" name="correo" required>
+
+      <label for="telefono">Teléfono:</label>
+      <input class="inp-libro-recl" type="tel" id="telefono" name="telefono">
+
+      <label for="direccion">Dirección:</label>
+      <textarea id="direccion" name="direccion" rows="3" required></textarea>
+    </section>
+
+    <hr>
+
+    <section class="informacion-general">
+      <h4 style="margin-top: 30px;" id="subtitulo-libro"><u>Información del Producto Reclamado:</u></h4>
+      <label for="producto">Producto Reclamado:</label>
+      <input class="inp-libro-recl" type="text" id="producto" name="producto" required>
+
+      <label for="monto">Monto Reclamado:</label>
+      <input class="inp-libro-recl" type="number" id="monto" name="monto" min="0" step="0.01" required>
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+    </section>
+
+    <hr>
+
+    <section class="detalles-reclamo">
+      <h4 style="margin-top: 30px;" id="subtitulo-libro"><u>Detalles del Reclamo:</u></h4>
+      <label for="tipo-reclamo">Tipo de Reclamo:</label>
+      <select id="tipo-reclamo" name="tipo-reclamo" required>
+        <option value="producto">Problema con el Producto</option>
+        <option value="servicio">Problema con el Servicio</option>
+        <!-- Otros tipos de reclamo aquí -->
+      </select>
+
+      <label for="detalles">Detalles del Reclamo:</label>
+      <textarea id="detalles" name="detalles" rows="4" required></textarea>
+    </section>
+
+    <button id="boton-libro" type="submit">Enviar Reclamo</button>
+  </form>
+</div>
+
+
+<script src="/static/js/libro_reclamaciones.js"></script>
+
+{% endblock %}

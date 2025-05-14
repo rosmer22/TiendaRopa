@@ -1,0 +1,82 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+</div>
+<section id="contenedor-section">
+    <h4 id="titulo-preguntas">Preguntas Frecuentes</h4>
+    <p id="subtitulo">Explora las siguientes preguntas más consultadas por nuestros clientes.</p>
+
+    <h5 class="temas_">Atención al cliente</h5>
+    <div class="faq-item">
+        <h6 onclick="toggleFaq(1)">¿Cuál es el horario del Centro de Servicio al Cliente? <span
+                class="arrow">&#9660;</span></h6>
+        <p class="answer">Nuestro horario es de 9 am. a 9 pm. de lunes a sábado.</p>
+    </div>
+    <div class="faq-item">
+        <h6 onclick="toggleFaq(2)">¿Cómo me puedo comunicar con el Centro de Servicio al Cliente?<span
+                class="arrow">&#9660;</span></h6>
+        <p class="answer">Puedes escribirnos al correo electrónico roxanaorrillo@hotmail.com o llamar al +51 964 678 483
+            y te atenderemos con mucho gusto.</p>
+    </div>
+
+    <h5 class="temas_">Métodos de pago</h5>
+    <div class="faq-item">
+        <h6 onclick="toggleFaq(3)">¿Cuáles son los métodos de pago aceptados? <span class="arrow">&#9660;</span>
+        </h6>
+        <p class="answer">Aceptamos pagos con tarjeta de crédito o débito, además de las billeteras digitales Yape y
+            Plin. Asegúrate de que tu tarjeta de crédito o débito esté habilitada para realizar compras por internet.
+        </p>
+    </div>
+    <div class="faq-item">
+        <h6 onclick="toggleFaq(4)">¿Qué tarjetas de crédito o débito aceptan? <span class="arrow">&#9660;</span></h6>
+        <p class="answer">Por el momento solo aceptamos tarjetas de crédito o débito VISA.</p>
+    </div>
+
+    <h5 class="temas_">Pedidos y envíos</h5>
+    <div class="faq-item">
+        <h6 onclick="toggleFaq(5)">¿Cómo realizo un pedido en su tienda en línea? <span class="arrow">&#9660;</span>
+        </h6>
+        <p class="answer">Puedes realizar un pedido fácilmente a través de nuestro sitio web. Agrega los productos
+            deseados al carrito, completa la información de envío y pago, y confirma tu pedido.</p>
+    </div>
+    <div class="faq-item">
+        <h6 onclick="toggleFaq(6)">¿Cuánto tiempo tarda en llegar mi pedido?<span class="arrow">&#9660;</span></h6>
+        <p class="answer">El tiempo de entrega varía según tu ubicación. Para obtener información precisa, visita
+            nuestra página de seguimiento de envíos o comunícate con nuestro equipo de atención al cliente.</p>
+    </div>
+
+    <h5 class="temas_">Seguridad en tu pedido</h5>
+    <div class="faq-item">
+        <h6 onclick="toggleFaq(7)">¿Es seguro comprar en pointroo.com? <span class="arrow">&#9660;</span></h6>
+        <p class="answer">Sí, en nuestra página web podrás comprar de forma segura. Utilizamos los más altos niveles de
+            seguridad para proteger tanto tus datos personales como los de tus pagos.</p>
+    </div>
+    <div class="faq-item">
+        <h6 onclick="toggleFaq(8)">¿pointroo.com realiza llamadas a sus clientes? <span class="arrow">&#9660;</span>
+        </h6>
+        <p class="answer">Sí, tenemos el compromiso de brindarte el mejor servicio, es así que nos interesa estar
+            comunicados contigo en cada etapa de tu compra a través de pointroo.com. Nuestro Centro de Servicio al
+            Cliente podrá contactarte para informarte si hubiera algún cambio con el estado de tu pedido, informarte del
+            estado de tus reclamos, entre otras cosas.</p>
+    </div>
+
+    <h5 class="temas_">Devoluciones o cambios</h5>
+    <div class="faq-item">
+        <h6 onclick="toggleFaq(9)">¿Cuál es su política de cambios o devoluciones? <span class="arrow">&#9660;</span>
+        </h6>
+        <p class="answer">Consulta nuestra página de políticas de cambios o devoluciones para obtener información
+            detallada sobre cómo devolver o cambiar un artículo y los plazos correspondientes a estos.</p>
+    </div>
+    <div class="faq-item">
+        <h6 onclick="toggleFaq(10)">¿Puedo cambiar un artículo por otro de diferente talla o color?<span
+                class="arrow">&#9660;</span></h6>
+        <p class="answer">Sí, en Point Roo te ofrecemos cambios de talla y color siempre que el artículo esté en
+            condiciones originales. Comunícate con nosotros para obtener asistencia en este proceso y más información al
+            respecto.</p>
+    </div>
+</section>
+
+<script src="/static/js/preguntas.js"></script>
+
+{% endblock %}

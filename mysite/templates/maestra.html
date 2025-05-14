@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/calzado.css">
+    <link rel="stylesheet" href="/static/css/estilos-globales.css">
+    <link rel="stylesheet" href="/static/css/acerca_de.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/carrito_de_compras.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/libro_de_reclamaciones.css">
+    <link rel="stylesheet" href="/static/css/pago_de_productos.css">
+    <link rel="stylesheet" href="/static/css/preguntas_frecuentes.css">
+    <link rel="stylesheet" href="/static/css/registro_de_usuario.css">
+    <link rel="stylesheet" href="/static/css/ubicanos.css">
+    <link rel="shortcut icon" href="/static/img/logo_point_roo.png" type="image/x-icon">
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/mostrar-menu-lateral.js"></script>
+    <script src="/static/js/carrito-de-compras.js"></script>
+    <script src="/static/js/preguntas.js"></script>
+    <script src="/static/js/registro-de-usuario.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/velocity-animate@2.0.3/velocity.min.js"></script>
+    <script src="/static/js/calzado.js"></script>
+    <script src="/static/js/ventana-carrito.js"></script>
+    <script src="/static/js/jquery-3.7.1.min.js"></script>
+    <title>{% block titulo %}{% endblock %}</title>
+</head>
+
+<body>
+    <!-- Cabecera (copiar todo para todas las páginas) -->
+
+    <header id="contenedor-header" class="color-header">
+        <a href="{{url_for('inicio')}}"><img id="logo_tienda" src="/static/img/logo_point_roo.png"
+                alt="logo de point roo"></a>
+        <button onclick="mostrarMenuLateral()" id="btn-menu">
+            <img id="img-menu" src="/static/img/menu.png" alt="">
+        </button>
+        <input id="barra-busqueda" class="form-control me-5" type="search" placeholder="Buscar productos xxx"
+            aria-label="Search">
+        {% if rol == 0 %}
+        <button onclick="abrirVentanaModalInicioDeSesion()" id="btn-iniciar-sesion" target="_blank">
+            <img id="logo-inicio-sesion" src="/static/img/logo-inicio-sesion.png" alt="inicio de sesion">
+            <b>Iniciar Sesión</b>
+        </button>
+        {% endif %}
+        <a id="contenedor-carrito" href="{{url_for('carrito')}}" target="_blank">
+            <img id="carrito-de-compras" src="/static/img/logo-carrito-de-compras.png" alt="">
+        </a>
+        {% if rol != 0 %}
+        <a href="{{url_for('logout')}}" class="btn btn-light mx-4" onclick="cerrarSesion()">Cerrar Sesion</a>
+        {% endif %}
+    </header>
+
+    <div class="barra_separadora">
+
+        <!------------------------- Cabecera-fin ------------------------->
+
+    </div>
+
+    {%block contenido %} {% endblock %}
+
+    <!------------------------  Main fin -------------------------->
+
+    <!-------------------------- Pie de página (copiar todo lo de abajo) ------------------>
+    <div class="barra_separadora">
+        <p></p>
+    </div>
+
+    <footer id="footer-general" class="color-footer">
+        <div id="footer-parte-1">
+            <div id="col-1">
+                <h6 id="h6-contactanos" class="titulos-footer-columnas"><b>Contáctanos</b></h6>
+                <h6 class="subt-col1">Whatsapp: +51 999 999 999</h6>
+                <h6 class="subt-col1">Correo electrónico: grupo04gmail.com</h6>
+                <a class="titulos-footer-columnas" href="{{url_for('acerca')}}" target="_blank"><b>Acerca de Point
+                        Roo</b></a>
+                <a class="titulos-footer-columnas" href="{{url_for('preguntas')}}" target="_blank"><b>Preguntas
+                        Frecuentes</b></a>
+                <a class="titulos-footer-columnas" href="{{url_for('ubicanos')}}" target="_blank"><b>Ubícanos</b></a>
+            </div>
+            <div id="col-2">
+                <a id="enlace-libro-reclamaciones" href="{{url_for('libro')}}" target="_blank"><img
+                        src="/static/img/libro_de_ reclamaciones_logo.png" alt=""></a>
+            </div>
+            <div id="col-3">
+                <h6 class="titulos-footer-columnas">Políticas y Términos</h6>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Políticas de Privacidad</a>
+                <a href="#">Políticas de Delivery</a>
+                <a href="#">Cambios o Devoluciones</a>
+            </div>
+            <div id="col-4">
+                <h6 id="h6-recibe-nuestras-ofertas" class="titulos-footer-columnas">Recibe nuestras ofertas y novedades
+                </h6>
+                <p>Ingresa tu e-mail:</p>
+                <div id="contenedor-ingresa-tu-email">
+                    <input class="form-control me-5" type="text" name="text-area-email" id="text-area-email">
+                    <button id="btn-suscribirme-footer">Suscribirme</button>
+                </div>
+            </div>
+        </div>
+        <hr id="barra-footer">
+        <div id="footer-parte-2">
+            <div style="display: flex; align-items: center;" id="contenedor-siguenos-iconos">
+                <h6>Síguenos:</h6>
+                <a href="https://facebook.com/PointRoo" target="_blank"><img class="icono-footer-parte-2"
+                        src="/static/img/facebook.png" alt="icono facebook"></a>
+                <a href="https://www.instagram.com/pointroo27/" target="_blank"><img class="icono-footer-parte-2"
+                        src="/static/img/instagram.png" alt="icono instagram"></a>
+                <a href="https://www.tiktok.com/@pointroo27" target="_blank"><img class="icono-footer-parte-2"
+                        src="/static/img/tik-tok.png" alt="icono tik tok"></a>
+            </div>
+            <div style="display: flex; align-items: center;" id="contenedor-medios-de-pago-iconos">
+                <h6>Medios de pago:</h6>
+                <a href="https://www.visa.com" target="_blank">
+                    <img class="icono-medios-pago-parte-2" src="/static/img/visa.png" alt="icono visa">
+                </a>
+                <a href="https://www.yape.com.pe" target="_blank">
+                    <img class="icono-medios-pago-parte-2" src="/static/img/yape.png" alt="icono yape">
+                </a>
+                <a href="https://www.bbva.pe/personas/productos-y-servicios/plin.html" target="_blank">
+                    <img class="icono-medios-pago-parte-2" src="/static/img/plin.png" alt="icono plin">
+                </a>
+                <style>
+                    .icono-medios-pago-parte-2 {
+                        transition: transform 0.3s ease, border 0.3s ease;
+                        border: 2px solid transparent;
+                    }
+
+                    .icono-medios-pago-parte-2:hover {
+                        transform: translateY(-10px);
+                        border: 2px solid #000;
+                        /* Black border on hover */
+                    }
+                </style>
+            </div>
+    </footer>
+    <div id="contenedor-informacion-desarrolladores">
+        <h6>Diseñado por: <b>Grupo 04</b></h6>
+        <h6 id="info-fecha-creacion">Fecha de creación: <b>11/05/2025</b></h6>
+    </div>
+
+    <!-- Menú de barra lateral: -->
+
+    <div class="container-menu">
+        <div class="categorias-titulo">
+            <b>Categorías</b>
+            <button onclick="mostrarMenuLateral()" class="button-x"><b>Cerrar X</b></button>
+        </div>
+        <div class="cont-menu">
+            <nav>
+                <a href="{{url_for('modaH')}}" target="_blank">Moda Hombre</a>
+                <a href="{{url_for('modaM')}}" target="_blank">Moda Mujer</a>
+                <a href="{{url_for('modaN')}}" target="_blank">Moda Niños</a>
+                <a href="{{url_for('calzado')}}" target="_blank">Calzado</a>
+                {% if rol == 2 %}
+                <a href="{{url_for('usuarios')}}" target="_blank">Administrar Usuarios</a>
+                <a href="{{url_for('adminP')}}" target="_blank">Administrar Productos</a>
+                {% endif %}
+            </nav>
+        </div>
+    </div>
+
+    <!-- Ventana modal de inicio de sesión (copiar) -->
+    <div id="ventana-modal-inicio-sesion"
+        style="background-color: rgba(0, 0, 0, 0.8); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); padding: 25px; max-width: 450px; margin: auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: rgba(255, 255, 255, 0.9);">
+        <div id="cont-img-titulo-inicio-sesion" style="text-align: center; margin-bottom: 25px;">
+            <img id="img-inicio-sesion-ventana-modal" src="/static/img/img-inicio-de-sesion-ventana-modal.png" alt=""
+                style="width: 90px; height: auto; margin-bottom: 15px;">
+            <h4 id="titulo-iniciar-sesion" style="font-weight: 600; color: rgba(22, 21, 21, 0.9);">Iniciar Sesión</h4>
+        </div>
+
+        <form action="{{url_for('proceso_login')}}" method="post" id="form-inicio-sesion">
+            <h6 id="subt-ingresa-con-tu-email-contraseña" style="color: rgba(200, 200, 200, 0.9); margin-bottom: 20px;">
+                Ingresa con tu e-mail y contraseña:</h6>
+
+            <input class="form-control me-5" type="text" name="email" placeholder="Correo electrónico..."
+                id="input-nombre-usuario-inicio-sesion"
+                style="margin-bottom: 5px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.5); padding: 12px; background-color: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.9);">
+            <span id="error-email" style="color: red; font-size: 13px; display: none;"></span>
+
+            <input class="form-control me-5" type="password" name="password" placeholder="Contraseña..."
+                id="input-contraseña-inicio-sesion"
+                style="margin-top: 15px; margin-bottom: 5px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.5); padding: 12px; background-color: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.9);">
+            <span id="error-password" style="color: red; font-size: 13px; display: none;"></span>
+
+            <button class="btns-ventana-modal-inicio-sesion" id="btn-olvide-mi-contraseña"
+                style="background: none; border: none; color: rgba(0, 123, 255, 0.9); text-decoration: underline; cursor: pointer; margin-bottom: 20px;">Olvidé
+                mi contraseña</button>
+
+            <div id="cont-btnVolver--btnIngresar"
+                style="display: flex; justify-content: space-between; align-items: center;">
+                <button type="button" onclick="cerrarVentanaModalInicioSesion()"
+                    class="btns-ventana-modal-inicio-sesion"
+                    style="background-color: rgba(40, 167, 69, 0.9); border: none; border-radius: 120px; padding: 8px 20px; cursor: pointer; color: rgba(255, 255, 255, 0.9); font-size: 14px;">
+                    &lt; Volver
+                </button>
+                <button class="btns-ventana-modal-inicio-sesion" type="submit" id="btn-ingresar-inicio-sesion"
+                    style="background-color: rgba(40, 167, 69, 0.9); border: none; border-radius: 120px; padding: 8px 20px; cursor: pointer; color: rgba(255, 255, 255, 0.9); font-size: 14px;">
+                    Ingresar
+                </button>
+            </div>
+        </form>
+
+        <div id="cont-noTienesCuenta-registrate" style="text-align: center; margin-top: 25px;">
+            <h6 id="lbl-no-tienes-cuenta" style="color: rgba(200, 200, 200, 0.9); margin-bottom: 15px;">¿No tienes una
+                cuenta?</h6>
+            <button class="btns-ventana-modal-inicio-sesion" onclick="abrirPaginaRegistroDeUsuario()"
+                style="background-color: rgba(40, 167, 69, 0.9); border: none; border-radius: 120px; padding: 8px 20px; cursor: pointer; color: rgba(255, 255, 255, 0.9); font-size: 14px;">
+                Regístrate
+            </button>
+        </div>
+    </div>
+
+    <!-- Script de validación -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("form-inicio-sesion");
+            const emailInput = document.getElementById("input-nombre-usuario-inicio-sesion");
+            const passwordInput = document.getElementById("input-contraseña-inicio-sesion");
+            const errorEmail = document.getElementById("error-email");
+            const errorPassword = document.getElementById("error-password");
+
+            form.addEventListener("submit", function (e) {
+                let valid = true;
+                const email = emailInput.value.trim();
+                const password = passwordInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                // Limpiar mensajes
+                errorEmail.style.display = "none";
+                errorPassword.style.display = "none";
+
+                // Validación de email
+                if (email === "") {
+                    errorEmail.textContent = "El correo electrónico es obligatorio.";
+                    errorEmail.style.display = "block";
+                    valid = false;
+                } else if (!emailRegex.test(email)) {
+                    errorEmail.textContent = "El formato del correo electrónico no es válido.";
+                    errorEmail.style.display = "block";
+                    valid = false;
+                }
+
+                // Validación de contraseña
+                if (password === "") {
+                    errorPassword.textContent = "La contraseña es obligatoria.";
+                    errorPassword.style.display = "block";
+                    valid = false;
+                }
+
+                if (!valid) {
+                    e.preventDefault(); // Detiene el envío
+                }
+            });
+        });
+    </script>
+    <!------------------------------------------------------>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+<main style="margin-top: 12px;">
+    <h4 id="titulo-seccion-calzado">Sección Mujer</h4>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div id="contenedor-imagenes-carrusel-portadas" style="margin-bottom: 0px;" class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2500">
+                <img src="/static/img/portada-calzado.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                <img src="/static/img/portada-calzado-2.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                <img src="/static/img/portada-calzado-3.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                <img src="/static/img/portada-calzado-4.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                <img src="/static/img/portada-calzado-5.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                <img src="/static/img/portada-calzado-6.png" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <h3 id="titulo-productos-calzado">Nuestros Productos</h3>
+
+    <div id="contenedor-cards">
+        {% for producto in productos %}
+        <div id="card-card" class="card" data-valor="{{producto[0]}}">
+            <div hidden class="productoID">{{producto[0]}}</div>
+            <div class="espacio-card-1">
+                <div class="contenedor-titulo-card">
+                {{producto[1]}}
+                </div>
+            </div>
+            <div class="espacio-card-2">
+                <div class="contenedor-contenido-card">
+                    <div class="contenedor-precio">
+                        <h6>Precio</h6>
+                        <h6>{{producto[2]}}</h6>
+                    </div>
+                    <div class="contenedor-item">
+                        <img class="item" src="{{ url_for('static', filename='img/' + producto[4]) }}"
+                         alt="Imagen item" style="height: 250px;">
+                    </div>
+                    <div class="contenedor-descripcion-item">
+                        {{producto[3]}}
+                    </div>
+                    <div class="contenedor-botones-item">
+                        <button class="btn-menos">
+                            <h6>-</h6>
+                        </button>
+                        <button class="btn-mas">
+                            <h6>+</h6>
+                        </button>
+                        <label class="cantidad-item" for="">1</label>
+                        <button onclick="abrirVentanaCarrito(this)" class="btn-agregar-item">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</main>
+
+<!-- Ventana Modal: Carrito de Compras -->
+
+<div id="ventana-modal">
+    <div id="contenedor-elige-opciones">
+        <h6><b>Elige tus opciones:</b></h6>
+        <button onclick="cerrarVentanaCarrito()" id="btn-cerrar-carrito-vista-previa">X</button>
+    </div>
+    <div id="contenedor-contenido-carrito">
+        <div>
+            <div id="contenedor-imgcarrito-descripcioneleccion">
+                <img id="imagen-carrito-vista-previa" src="/static/" alt="">
+                <div>
+                    <h6 hidden id="valor-id"></h6>
+                    <h6 id="valor-titulo-producto" style="text-align: justify;"></h6>
+                    <h6 id="valor-cantidad"></h6>
+                    <h6 id="valor-precio"></h6>
+                    <h6 id="valor-total"></h6>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="contenedor-seleccion-talla">
+            <h6><b>Seleccione una talla:</b></h6>
+            <div id="contenedor-botonestalla-btnagregarcarrito">
+                <div id="contenedor-botones-talla">
+                    <button class="btn-talla" onclick="cambiarColor(this)">S</button>
+                    <button class="btn-talla" onclick="cambiarColor(this)">M</button>
+                    <button class="btn-talla" onclick="cambiarColor(this)">L</button>
+                    <button class="btn-talla" onclick="cambiarColor(this)">XL</button>
+                    <button class="btn-talla" onclick="cambiarColor(this)">XLL</button>
+                </div>
+                <button onclick="agregarProductoAlCarrito()" id="btn-agregar-carrito">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Producto agregado al carrito -->
+
+    <div id="ventana-modal-2">
+        <div id="contenedor-producto-agregado">
+            <h6><b>Producto agregado exitosamente :)</b></h6>
+        </div>
+        <div id="contenedor-contenido-prdct-agregado">
+            <button onclick="cerrarVentanaModal2()" id="btn-seguir-comprando"><u>Seguir comprando</u></button>
+            <button onclick="irCarrito()" id="btn-ir-al-carrito"><u>Ir al carrito de compras</u></button>
+        </div>
+    </div>
+
+{% endblock %}

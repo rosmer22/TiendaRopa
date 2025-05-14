@@ -1,0 +1,50 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+<!-- Inicio main acerca de -->
+
+<div class="btn-group p-3" role="group" aria-label="Basic example">
+    <a class="btn btn-primary" href="{{url_for('formulario')}}">Añadir Usuario</a>
+    <button type="button" class="btn btn-secondary">Siguiente</button>
+</div>
+
+<br>
+
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th scope="col me-auto">Codigo</th>
+            <th scope="col me-auto">Nombre</th>
+            <th scope="col me-auto">Apellido</th>
+            <th scope="col me-auto">Rango</th>
+            <th scope="col me-auto">Email</th>
+            <th scope="col me-auto">Fecha de Registro</th>
+            <th scope="col me-auto">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{usuario[1]}}</td>
+            <td>{{usuario[2]}}</td>
+            <td>{{usuario[3]}}</td>
+            <td>{{usuario[4]}}</td>
+            <td>{{usuario[5]}}</td>
+            <td>{{usuario[6]}}</td>
+            <td><form action="{{url_for('editarU')}}" class="pb-1" method="POST">
+                <input type="hidden" name="id" value="{{usuario[0]}}">
+                <button type="submit" class="btn btn-primary px-4">Editar</button>
+            </form>
+                <form action="{{url_for('eliminar_usuario')}}" method="POST">
+                    <input type="hidden" name="id" value="{{usuario[0]}}">
+                    <button type="submit" class="btn btn-danger px-3">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!-------------------------------------------------------------------------------------------------->
+
+{% endblock %}

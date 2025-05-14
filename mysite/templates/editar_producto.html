@@ -1,0 +1,45 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+
+<div class="container d-flex justify-content-center">
+    <!-- Formulario de Bootstrap -->
+    <form action="{{url_for('actualizar_producto')}}" method="post" enctype="multipart/form-data">
+        <h2 class="mb-3">Formulario Editar Productos</h2>
+        <input type="hidden" name="id" value="{{producto[0]}}">
+        <div class="mb-3">
+            <label for="email" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{{producto[1]}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio:</label>
+            <input type="number" class="form-control" id="precio" name="precio" value="{{producto[2]}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripcion:</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{producto[3]}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Nombre Imagen:</label>
+            <input type="text" class="form-control" id="imagen" name="imagen" value="{{producto[4]}}" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Imagen:</label>
+            <input type="hidden" value="{{producto[4]}}">
+            <br>
+            <img class="item" src="{{ url_for('static', filename='img/' + producto[4]) }}" alt="Imagen item">
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label">Cambiar Imagen:</label>
+            <input type="file" class="form-control" id="img" name="img" value="{{producto[4]}}">
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a href="javascript:history.back()" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+
+
+
+
+{% endblock %}

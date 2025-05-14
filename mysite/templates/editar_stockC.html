@@ -1,0 +1,22 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+<div class="container">
+    <!-- Formulario de Bootstrap -->
+    <h2 class="mb-3">Formulario de Stock</h2><br>
+    {%for stock in stocks%}
+    <form action="{{url_for('actualizar_stockC',antiguo=stock[1],idt=stock[2],idp=stock[3])}}" method="post"
+        enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="{{stock[0]}}" class="form-label">Talla: {{stock[4]}} Cantidad Actual: {{stock[1]}}</label>
+            <input type="number" class="form-control" id="{{stock[0]}}" name="cantidad" required>
+            <br>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
+    </form>
+    {%endfor%}
+    <a href="{{url_for('adminP')}}" class="btn btn-danger"> Volver </a>
+</div>
+
+{% endblock %}

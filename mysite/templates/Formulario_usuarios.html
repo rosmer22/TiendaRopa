@@ -1,0 +1,45 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+<!-- Inicio main acerca de -->
+
+<div class="container d-flex justify-content-center">
+    <!-- Formulario de Bootstrap -->
+    <form action="{{url_for('guardar_usuario')}}" method="post" enctype="multipart/form-data">
+        <h2 class="mb-3">Formulario Añadir Usuarios</h2>
+        <div class="mb-3">
+            <label for="codigo" class="form-label">Codigo:</label>
+            <input type="text" class="form-control" id="codigo" name="codigo" required>
+        </div>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido:</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" required>
+        </div>
+        <label for="rango" class="form-label">Rango:</label>
+        <select id="rangos" name="rango" class="form-select mb-3" aria-label="Default select example">
+            <option selected>Seleccione el Rango</option>
+            <option value="2">Administrador</option>
+            <option value="3">Soporte</option>
+            <option value="1">Cliente</option>
+        </select>
+        <div class="mb-3">
+            <label for="estado" class="form-label">Estado:</label>
+            <input type="text" class="form-control" id="estado" name="estado" required>
+        </div>
+        <div class="mb-3">
+            <label for="contrasena" class="form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Añadir</button>
+        <button type="button" class="btn btn-danger">Cancelar</button>
+    </form>
+</div>
+
+<!-------------------------------------------------------------------------------------------------->
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+<!-- Inicio main acerca de -->
+
+<div class="container d-flex justify-content-center">
+    <!-- Formulario de Bootstrap -->
+    <form action="{{url_for('actualizar_usuario')}}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{usuario[0]}}">
+        <h2 class="mb-3">Formulario Editar Usuarios</h2>
+        <div class="mb-3">
+            <label for="codigo" class="form-label">Codigo:</label>
+            <input type="text" class="form-control" id="codigo" name="codigo" value="{{usuario[1]}}">
+        </div>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{{usuario[2]}}">
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido:</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" value="{{usuario[3]}}">
+        </div>
+        <label for="rango" class="form-label">Rango:</label>
+        <select id="rangos" name="rango" class="form-select mb-3" aria-label="Default select example">
+            <option selected>{{usuario[4]}}</option>
+            <option value="1">Administrador</option>
+            <option value="2">Soporte</option>
+            <option value="3">Cliente</option>
+        </select>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="text" class="form-control" id="e-mail" name="email" value="{{usuario[5]}}">
+        </div>
+        <div class="mb-3">
+            <label for="contrasena" class="form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena">
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a href="javascript:history.back()" class="btn btn-danger">Cancelar</a>
+    </form>
+</div>
+
+<!-------------------------------------------------------------------------------------------------->
+
+{% endblock %}

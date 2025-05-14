@@ -1,0 +1,38 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+<!-- Inicio main acerca de -->
+
+<div class="container d-flex justify-content-center">
+    <!-- Formulario de Bootstrap -->
+    <form action="{{url_for('guardar_producto', cat = idC)}}" method="post" enctype="multipart/form-data">
+        <h2 class="mb-3">Formulario Añadir Producto</h2>
+        <div class="mb-3">
+            <label for="email" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio:</label>
+            <input type="number" class="form-control" id="precio" name="precio" step="0.01" required>
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripcion:</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+        </div>
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen:</label>
+            <input type="file" class="form-control" id="imagen" name="imagen" required>
+        </div>
+        <div>
+            <input type="hidden" class="form-control" id="productoID" name="productoID" value="" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Añadir</button>
+        <a href="javascript:history.back()" class="btn btn-danger">Cancelar</a>
+
+    </form>
+</div>
+
+<!-------------------------------------------------------------------------------------------------->
+
+{% endblock %}

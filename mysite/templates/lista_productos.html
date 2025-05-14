@@ -1,0 +1,53 @@
+{% extends "maestra.html" %}
+{% block titulo %} Point Roo {% endblock %}
+{% block contenido %}
+
+<!-- Inicio main acerca de -->
+<br>
+
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th scope="col me-auto">Nombre</th>
+            <th scope="col me-auto">Precio</th>
+            <th scope="col me-auto">Descripcion</th>
+            <th scope="col me-auto">Imagen</th>
+            <th scope="col me-auto">Editar</th>
+            <th scope="col me-auto">Eliminar</th>
+            <th scope="col me-auto">Stock</th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td style="max-width: 100px;word-wrap: break-word;white-space: pre-line;">{{producto[1]}}</td>
+            <td>{{producto[2]}}</td>
+            <td style="max-width: 200px;word-wrap: break-word;white-space: pre-line;">{{producto[3]}}</td>
+            <td> <img class="item" src="{{ url_for('static', filename='img/' + producto[4]) }}" alt="Imagen item"
+                    style="height: 250px;">
+            </td>
+            <td>
+                {# Pasar el id lo que hay en producto[0] #}
+                <a href="{{url_for( 'editarC', id=producto[0] )}}" class="btn btn-primary px-4">Editar</a>
+            </td>
+            <td>
+                <form action="{{url_for('eliminar_producto')}}" method="POST">
+                    <input type="hidden" name="id" value="{{producto[0]}}">
+                    <button class="btn btn-danger px-3">Eliminar</button>
+                </form>
+            </td>
+            <td>
+                <a href="{{url_for( 'stockC', id=producto[0] )}}" class="btn btn-primary">Editar Stock</a>
+            </td>
+            <td>
+         
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-------------------------------------------------------------------------------------------------->
+
+{% endblock %}
