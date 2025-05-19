@@ -29,15 +29,11 @@
 #contenedor-fila-2 {
     display: flex;
     padding-top: 20px;
-    flex-wrap: wrap;
-    gap: 30px;
-    row-gap: 30px;
     justify-content: center;
 }
 
 /* ----- FORMULARIO ----- */
 #contenedor-formulario-registro {
-    padding: 20px;
     display: flex;
     flex-direction: column;
     margin-left: auto;
@@ -112,8 +108,6 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
     margin: 0 auto;
     max-width: 500px;
     text-align: center;
