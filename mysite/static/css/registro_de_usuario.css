@@ -1,145 +1,202 @@
-#contenedor-contenido-registro{
-    margin: 150px;
-    margin-top: 30px;
+/* ----- CONTENEDOR PRINCIPAL ----- */
+#contenedor-contenido-registro {
+    margin: 50px 30px 30px 30px;
     display: flex;
     flex-direction: column;
 }
 
-#titulo-no-estas-registrado{
+/* ----- TÍTULOS ----- */
+#titulo-no-estas-registrado,
+#titulo-complete-formulario,
+#titulo-beneficios {
     font-weight: bold;
+    text-align: center;
 }
 
-#contenedor-fila-2{
+#titulo-complete-formulario {
+    margin-bottom: 30px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#titulo-beneficios {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+/* ----- CONTENEDOR DE FORMULARIO Y BENEFICIOS EN FILA ----- */
+#contenedor-fila-2 {
     display: flex;
     padding-top: 20px;
     flex-wrap: wrap;
     gap: 30px;
     row-gap: 30px;
+    justify-content: center;
 }
 
-#contenedor-beneficios{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    margin-right: 100px;
-}
-
-#contenedor-beneficios-estrellas{
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.contenedor-icono-estrella-beneficio{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.titulo-beneficio{
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-#contenedor-formulario-registro{
+/* ----- FORMULARIO ----- */
+#contenedor-formulario-registro {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-}
-
-#titulo-complete-formulario{
-    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
-    width: fit-content;
-    font-weight: bold;
-    text-align: center;
 }
 
-#formulario{
-    padding-left: 20px;
+/* Centrar todo el formulario */
+form {
     display: flex;
     flex-direction: column;
-}
-
-.cont-lbl-input{
-    display: flex;
-    padding-left: 0px;
-    width: 100%;
+    align-items: center;
     gap: 10px;
-    align-items:center;
-    /* justify-content: space-between; */
 }
 
-#nombres,#apellidos,#email,#contraseña{
-    margin-left: auto;
+/* Label + Input */
+.cont-lbl-input {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.cont-lbl-input label {
+    min-width: 100px;
+    text-align: right;
+}
+
+#nombres, #apellidos, #email, #contraseña {
     height: 35px;
     border: 2px solid;
     flex-grow: 1;
-    width: 250px; /* Puedes ajustar el valor según tus necesidades */
-    height: 30px; /* También puedes ajustar la altura si lo necesitas */
-
+    width: 250px;
 }
 
-#contenedor-check{
-    margin-top: 15px;
-    padding-right: 60px;
-    margin-left: auto;
+/* Checkbox */
+#contenedor-check {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    max-width: 400px;
+    width: 100%;
+    gap: 10px;
 }
 
-#btn-registrarme-registro{
+#lbl-he-leido {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Botón de registro */
+#btn-registrarme-registro {
     width: 120px;
-    margin-left: auto;
-    margin-top: auto;
-    margin-right: 60px;
-    border: 0px solid;
-    height: 28px;
+    height: 40px;
+    border: 0;
     color: white;
     font-weight: bold;
     border-radius: 5px;
     background-color: #917c04;
     transition: all 500ms ease;
-    height: 40px;
+    margin-top: 20px;
 }
 
-#btn-registrarme-registro:hover{
+#btn-registrarme-registro:hover {
     transition: all 500ms ease;
     transform: scale(1.1);
-
 }
 
-#lbl-he-leido{
-    margin-left: auto;
+/* ----- BENEFICIOS ----- */
+#contenedor-beneficios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: center;
 }
 
-@media (min-width: 500px) and (max-width: 1070px){
-    #contenedor-beneficios,#contenedor-formulario-registro,#btn-registrarme-registro{
+#img-registro {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#contenedor-beneficios-estrellas {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.contenedor-icono-estrella-beneficio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.icon-star {
+    width: 24px;
+    height: 24px;
+}
+
+.titulo-beneficio {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (min-width: 500px) and (max-width: 1070px) {
+    #contenedor-beneficios,
+    #contenedor-formulario-registro,
+    #btn-registrarme-registro {
         margin: auto;
     }
 }
 
 @media (max-width: 500px) {
-    .cont-lbl-input{
+    .cont-lbl-input {
         display: block;
-        padding-left: 0;
         width: 100%;
-        align-items: center;
+        max-width: 400px;
     }
 
-    #contenedor-beneficios,#contenedor-formulario-registro,#btn-registrarme-registro{
+    .cont-lbl-input label {
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    #nombres, #apellidos, #email, #contraseña {
+        width: 100%;
+    }
+
+    #contenedor-check {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contenedor-icono-estrella-beneficio {
+        justify-content: center;
+        text-align: center;
+    }
+
+    #contenedor-beneficios,
+    #contenedor-formulario-registro,
+    #btn-registrarme-registro {
         margin: auto;
     }
 }
-#subtitulo{
+
+/* Subtítulo adicional si lo usas */
+#subtitulo {
     text-align: center;
-}
-#img-registro{
-    width: 230px;
-    height: 120px;
-    margin-top: 0;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
 }

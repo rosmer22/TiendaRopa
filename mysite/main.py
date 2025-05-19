@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, flash, jsonify, json, make_response
 import requests
 from urllib.parse import urlparse
-from flask_jwt import JWT, jwt_required
+from flask_jwt_extended import JWTManager, jwt_required
 from datetime import datetime
 import clases.clase_stock as clase_stock
 import clases.clase_usuario as clase_usuario
@@ -71,7 +71,7 @@ app = Flask(__name__)
 app.debug = True
 app.config['SECRET_KEY'] = 'super-secret'
 
-jwt = JWT(app, authenticate, identity)
+jwt = JWTManager(app)
 
 UPLOAD_FOLDER = os.path.abspath('mysite/static/img')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

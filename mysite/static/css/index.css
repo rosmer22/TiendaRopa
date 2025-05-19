@@ -10,3 +10,7 @@
 body.click-inicio-sesion{
     pointer-events: none;
 }
+
+a img{
+    border-radius: 20px;
+}
