@@ -531,6 +531,25 @@ header,footer{
     opacity: 1;
 }
 
+#form-inicio-sesion {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 10px;  /* agrega un poco de espacio interno a la izquierda */
+  padding-right: 10px; /* agrega un poco de espacio interno a la derecha */
+  margin: 0 auto;      /* centrar si es necesario */
+}
+
+#form-inicio-sesion input[type="text"],
+#form-inicio-sesion input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.3);
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+}
 #cont-img-titulo-inicio-sesion{
     display: flex;
     align-items: center;
