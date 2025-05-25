@@ -531,25 +531,26 @@ header,footer{
     opacity: 1;
 }
 
-#form-inicio-sesion {
-  width: 100%;
-  box-sizing: border-box;
-  padding-left: 10px;  /* agrega un poco de espacio interno a la izquierda */
-  padding-right: 10px; /* agrega un poco de espacio interno a la derecha */
-  margin: 0 auto;      /* centrar si es necesario */
+#form-inicio-sesion input.form-control {
+  width: calc(100% - 30px) !important;
+  margin: 0 auto 10px auto !important;
+  box-sizing: border-box !important;
+  display: block !important;
 }
 
 #form-inicio-sesion input[type="text"],
 #form-inicio-sesion input[type="password"] {
-  width: 100%;
+  width: calc(100% - 30px); /* Ancho dejando 15px de margen a cada lado */
   padding: 12px 15px;
-  margin-bottom: 10px;
+  margin: 0 auto 10px auto; /* margen arriba 0, abajo 10px, centrado */
   border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.3);
-  background-color: white;
-  color: black;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
   box-sizing: border-box;
+  display: block; /* para que margin auto funcione */
 }
+
 #cont-img-titulo-inicio-sesion{
     display: flex;
     align-items: center;
